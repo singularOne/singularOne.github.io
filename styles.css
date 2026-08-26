@@ -1,0 +1,153 @@
+/* Email Contact Options Styles */
+.email-contact-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.email-option {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.email-option::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: transparent;
+    transition: background var(--transition-base);
+}
+
+.email-option-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(14,165,233,0.1) 100%);
+}
+
+.email-option-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--primary-color);
+}
+
+.email-option-content strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.email-option-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.email-option:hover {
+    border-color: var(--primary-color);
+    transform: translateX(4px);
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
+}
+
+.email-option:hover::before {
+    background: linear-gradient(to top right, var(--primary-color), var(--secondary-color));
+}
+
+/* Primary Email Option */
+.primary-email {
+    order: -1;
+    margin-top: var(--spacing-md);
+    padding-left: 0 !important;
+    flex-direction: column;
+    text-align: center;
+}
+
+.primary-email::before {
+    display: none !important;
+}
+
+.primary-email .email-option-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    margin-bottom: var(--spacing-md);
+}
+
+.primary-email .email-option-icon svg {
+    stroke: white;
+}
+
+.primary-email strong {
+    font-size: 1.25rem;
+    color: white !important;
+}
+
+.primary-email p {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+/* Secondary Email Option */
+.secondary {
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+}
+
+.secondary:hover {
+    border-color: var(--primary-color) !important;
+}
+
+.secondary::before {
+    background: rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Mailto Link Container */
+.mailto-link-container {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+#directMailtoLink {
+    font-family: inherit;
+    font-size: 0.75rem !important;
+}
+
+/* Responsive adjustments for email options */
+@media (max-width: 768px) {
+    .email-contact-options {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: var(--spacing-md);
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .email-option {
+        min-width: 200px;
+        max-height: 140px;
+    }
+    
+    .primary-email {
+        order: 0 !important;
+        flex-direction: row !important;
+        text-align: left !important;
+        padding-left: var(--spacing-lg) !important;
+    }
+}
